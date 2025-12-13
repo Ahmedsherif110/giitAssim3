@@ -1,4 +1,4 @@
-name: Environments-EC2s-CICD
+name: Automated-Environments-EC2s-CICD
 on:
   workflow_dispatch:
    inputs:
