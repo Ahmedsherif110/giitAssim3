@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: EC2-Runner
+    runs-on: linux
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v6.1.0
