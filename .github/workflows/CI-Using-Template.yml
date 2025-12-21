@@ -12,7 +12,7 @@ jobs:
     with:
       node-version: '20'
       image_name: "react-app-cicd"
-      secrets:
+    secrets:
         DOCKER_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
     
 
