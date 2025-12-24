@@ -27,6 +27,7 @@ jobs:
       run: npm run build 
     
     - name: Using Custom Action 
+      id: React_Docker_build_and_push
       uses: mohammedd2510/Reusable-Workflows-Custom-Actions/.github/actions/react-docker-build-push@main
       with:
             registry: ghcr.io
@@ -34,6 +35,9 @@ jobs:
             password: ${{ secrets.GITHUB_TOKEN }}
             image-name: react-app-cicd
             tag: ${{ github.sha }}
-           
+    - name: Output Image Name
+      run: |
+       echo "Docker Image Name: ${{ steps.React_Docker_build_and_push.outputs.image_name }}"
+       echo "Docker Push Status ${{ steps.React_Docker_build_and_push.outputs.push_status }}"
   
   
