@@ -17,4 +17,4 @@ jobs:
 
         steps:
             - name: print deployment name
-              run: echo ${{vars.environment_text}           
+              run: echo ${{vars.environment_text}}           
