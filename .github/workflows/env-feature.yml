@@ -1,0 +1,20 @@
+name: new Environment feature
+on:
+    workflow_dispatch: 
+        inputs:
+            Environment:
+                description: "choise your Environment"
+                type: choice
+                required: true
+                options:
+                    - production
+                    - staging
+jobs:
+    deploy:
+        name: deploy to ${{github.event.inputs.Environment}}          
+        runs-on: ubuntu-latest
+        environment: ${{ github.event.inputs.Environment }}
+
+        steps:
+            - name: print deployment name
+              run: echo ${{vars.environment_text}           
