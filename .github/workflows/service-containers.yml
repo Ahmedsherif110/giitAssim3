@@ -17,14 +17,14 @@ jobs:
             ports:
               - 8080:80
 
-      steps:
-        - name: Check NGINX server
-          run: |
-            echo "Checking NGINX..."
-            curl -f http://nginx
+        steps:
+          - name: Check NGINX server
+            run: |
+              echo "Checking NGINX..."
+              curl -f http://nginx
         
-        - name: Check Apache server
-          run: |
-            echo "Checking Apache..."
-            curl -f http://apache   
+          - name: Check Apache server
+            run: |
+              echo "Checking Apache..."
+              curl -f http://apache   
 
