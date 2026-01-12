@@ -21,10 +21,10 @@ jobs:
           - name: Check NGINX server
             run: |
               echo "Checking NGINX..."
-              curl -f http://nginx
+              curl -f http://localhost:80
         
           - name: Check Apache server
             run: |
               echo "Checking Apache..."
-              curl -f http://apache   
+              curl -f http://localhost:8080  
 
