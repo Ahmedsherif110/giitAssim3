@@ -1,0 +1,16 @@
+name: Branch Based Environment Deployment
+on:
+    push:
+        branches:
+          - main
+          - staging
+jobs:
+  deploy:
+    name: deploy on branch ${{github.ref_name}}
+    runs-on: ubuntu-latest
+
+    environment: ${{github.ref_name == 'main' && 'production' || 'staging'}}
+
+    steps:
+      - name: print deployment stage
+        run: echo ${{vars.environment_text}}
