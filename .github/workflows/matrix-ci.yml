@@ -1,0 +1,33 @@
+name: matrix ci
+on:
+    workflow_dispatch: 
+jobs:
+    multi-os:
+        runs-on: ${{ matrix.os }}
+        strategy:
+            fail-fast: true
+            max-parallel: 2
+            matrix:
+                os: [ubuntu-latest, windows-latest]
+                node: [16, 18, 20]
+                
+                exclude:
+                    - os: windows-latest
+                      node: 16
+                include:
+                    - os: ubuntu-latest
+                      node: 21
+
+        steps:
+            - name: checkout code
+              uses: actions/checkout@v3
+            
+            - name: install nodjs
+              uses: actions/setup-node@v6.1.0
+              with:
+                node-version: ${{ matrix.node }}  
+            
+            - name: print os and nodeh.js version
+              run: |
+                echo "operating system is ${{ matrix.os }}"
+                echo " and node-version is ${{ matrix.node }} "
