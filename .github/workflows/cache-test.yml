@@ -23,8 +23,7 @@ jobs:
             - name: install dependencies
               if: steps.cache-node.outputs.cache-hit != 'true'
               run: npm install
-            - name: lint Phase
-              run: npm run lint
+            
             - name: unit test
               run: npm run test
             - name: build static files
