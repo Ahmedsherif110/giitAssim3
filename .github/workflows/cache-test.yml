@@ -21,7 +21,7 @@ jobs:
                 key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}  
                 restore-keys: ${{ runner.os }}-node-
             - name: test dependences
-              if: steps.cache-node.outputs.cache-hit = 'true'
+              if: steps.cache-node.outputs.cache-hit == 'true'
               run: echo "caches is saved"
             
             - name: unit test
